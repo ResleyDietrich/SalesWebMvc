@@ -5,6 +5,7 @@ using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using SalesWebMvc.Data;
 using System;
 using System.Text;
+using SalesWebMvc.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionStr = builder.Configuration.GetConnectionString("SalesWebMvcContext");
@@ -13,6 +14,7 @@ builder.Services.AddDbContext<SalesWebMvcContext>(options =>
 options.UseMySql(connectionStr, ServerVersion.AutoDetect(connectionStr), builder => builder.MigrationsAssembly("SalesWebMvc")));
 
 builder.Services.AddScoped<SeedingService>();
+builder.Services.AddScoped<SellerService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
