@@ -20,6 +20,7 @@ options.UseMySql(connectionStr, ServerVersion.AutoDetect(connectionStr), builder
 builder.Services.AddScoped<SeedingService>();
 builder.Services.AddScoped<SellerService>();
 builder.Services.AddScoped<DepartmentService>();
+builder.Services.AddScoped<SalesRecordService>();
 
 var ptBR = new CultureInfo("pt-BR");
 var localizationOptions = new RequestLocalizationOptions
